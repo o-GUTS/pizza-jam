@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://c0kklm6epasnv"]
+
+[ext_resource type="Script" uid="uid://cu3sjn2rgxb53" path="res://src/menus/main_menu/main_menu.gd" id="1_tlnm8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jnkvu"]
+font_size = 58
+
+[node name="main_menu" type="Control" unique_id=123232366]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tlnm8")
+
+[node name="bg" type="ColorRect" parent="." unique_id=1447450869]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12469373, 0.11527682, 0.15767455, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1980918333]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1959287435]
+layout_mode = 2
+theme_override_constants/separation = 120
+
+[node name="title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=2091336837]
+layout_mode = 2
+text = "A GAME"
+label_settings = SubResource("LabelSettings_jnkvu")
+horizontal_alignment = 1
+
+[node name="btns_container" type="VBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1196826207]
+layout_mode = 2
+
+[node name="play_btn" type="Button" parent="CenterContainer/VBoxContainer/btns_container" unique_id=577743596]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "PLAY"
+
+[node name="settings_btn" type="Button" parent="CenterContainer/VBoxContainer/btns_container" unique_id=967978727]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "SETTINGS"
+
+[node name="credits_btn" type="Button" parent="CenterContainer/VBoxContainer/btns_container" unique_id=1978983141]
+unique_name_in_owner = true
+layout_mode = 2
+text = "CREDITS"
+
+[node name="quit_btn" type="Button" parent="CenterContainer/VBoxContainer/btns_container" unique_id=1928399873]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "QUIT"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/btns_container/play_btn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/btns_container/settings_btn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/btns_container/credits_btn" to="." method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/btns_container/quit_btn" to="." method="_on_quit_btn_pressed"]

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cb1usjdg0tq8e"]
+
+[ext_resource type="Script" uid="uid://dktv1d3c5de2g" path="res://src/menus/credits_screen/credits_screen.gd" id="1_wb0br"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h25x4"]
+font_size = 58
+
+[node name="credits_screen" type="Control" unique_id=66771260]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wb0br")
+
+[node name="bg" type="ColorRect" parent="." unique_id=1218974603]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14450529, 0.15100351, 0.116575055, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=850533158]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=24680537]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1976152880]
+layout_mode = 2
+text = "THE CREDITS"
+label_settings = SubResource("LabelSettings_h25x4")
+horizontal_alignment = 1
+
+[node name="main_menu_btn" type="Button" parent="CenterContainer/VBoxContainer" unique_id=530492065]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "MAIN MENU"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/main_menu_btn" to="." method="_on_main_menu_btn_pressed"]
