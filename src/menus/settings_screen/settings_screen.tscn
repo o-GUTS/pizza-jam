@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bq01ysaw7qik1"]
+
+[ext_resource type="Script" uid="uid://dplirdb274eru" path="res://src/menus/settings_screen/settings_screen.gd" id="1_kryhp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7vl1r"]
+font_size = 58
+
+[node name="settings_screen" type="Control" unique_id=199395588]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kryhp")
+
+[node name="bg" type="ColorRect" parent="." unique_id=1763283699]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09595666, 0.15310991, 0.16256797, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1245128763]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=211126843]
+layout_mode = 2
+theme_override_constants/separation = 90
+
+[node name="title" type="Label" parent="CenterContainer/VBoxContainer" unique_id=1954399744]
+layout_mode = 2
+text = "THE SETTINGS"
+label_settings = SubResource("LabelSettings_7vl1r")
+horizontal_alignment = 1
+
+[node name="main_menu_btn" type="Button" parent="CenterContainer/VBoxContainer" unique_id=489397502]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+text = "MAIN MENU"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/main_menu_btn" to="." method="_on_main_menu_btn_pressed"]
