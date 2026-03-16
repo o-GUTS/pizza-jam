@@ -3,7 +3,7 @@
 - A bunch of enemies (bullet hell vibes)
 - Upgrades
 - Futuristic
-- Shrinking arena
+- Shrinking arena / time runs out
 - Death is certain
 
 ## Maybe

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dfvpj71ixmlqq" path="res://src/player/player.tscn" id="1_eewff"]
 [ext_resource type="Script" uid="uid://rtybnwyfkac3" path="res://src/main.gd" id="1_gh0ne"]
+[ext_resource type="Script" uid="uid://bc4n4apjvlk04" path="res://src/day_night_cicle/day_night_manager.gd" id="3_5q4o7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ts572"]
 albedo_color = Color(0.014272692, 0.019517371, 0.040888935, 1)
@@ -17,7 +18,24 @@ size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gh0ne"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5q4o7"]
+sky_top_color = Color(0.09641833, 0.14010262, 0.19561765, 1)
+sky_horizon_color = Color(0.09803922, 0.14117648, 0.19607843, 1)
+ground_bottom_color = Color(0.1028169, 0.14413098, 0.2026586, 1)
+ground_horizon_color = Color(0.09803922, 0.14117648, 0.19607843, 1)
+
+[sub_resource type="Sky" id="Sky_3cfgd"]
+sky_material = SubResource("ProceduralSkyMaterial_5q4o7")
+
 [sub_resource type="Environment" id="Environment_ts572"]
+background_mode = 2
+sky = SubResource("Sky_3cfgd")
+ambient_light_source = 3
+fog_enabled = true
+fog_mode = 1
+fog_sun_scatter = 0.1
+fog_density = 2.5
+fog_depth_curve = 1.5
 
 [node name="main" type="Node3D" unique_id=1158837038]
 script = ExtResource("1_gh0ne")
@@ -64,9 +82,21 @@ shape = SubResource("BoxShape3D_gh0ne")
 [node name="player" parent="." unique_id=88229283 instance=ExtResource("1_eewff")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93644, 0)
 
-[node name="sun" type="DirectionalLight3D" parent="." unique_id=2004129217]
-transform = Transform3D(1, 0, 0, 0, 0.5970091, 0.80223435, 0, -0.80223435, 0.5970091, 0, 42.372433, 39.806976)
+[node name="day_night_manager" type="Node3D" parent="." unique_id=999425069]
+script = ExtResource("3_5q4o7")
+
+[node name="sun" type="DirectionalLight3D" parent="day_night_manager" unique_id=1248055285]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.9063077, -0.42261824, 0, 0.42261824, 0.9063077, 0, 0, 0)
+visible = false
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=690815866]
+[node name="moon" type="DirectionalLight3D" parent="day_night_manager" unique_id=2004129217]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -0.4226184, 0.9063079, 0, -0.9063079, -0.4226184, 0, 0, 0)
+light_color = Color(0.68169904, 0.68169904, 0.681699, 1)
+shadow_enabled = true
+
+[node name="world_environment" type="WorldEnvironment" parent="day_night_manager" unique_id=690815866]
+unique_name_in_owner = true
 environment = SubResource("Environment_ts572")
