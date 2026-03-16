@@ -4,6 +4,7 @@ class_name DayNightManager
 
 @onready var sun: DirectionalLight3D = %sun
 @onready var moon: DirectionalLight3D = %moon
+@onready var progress_bar: ProgressBar = %progress_bar
 @onready var world_environment: WorldEnvironment = %world_environment
 
 const NIGHT_DURATION_SECONDS: float = 10
@@ -50,4 +51,8 @@ func _ready():
 			moon.hide()
 			sun.show()
 			day_tween.play()
+	)
+	
+	create_tween().tween_property(
+		progress_bar, "value", 1, DAY_DURATION_SECONDS + NIGHT_DURATION_SECONDS
 	)

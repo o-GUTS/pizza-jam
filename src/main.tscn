@@ -85,6 +85,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.93644, 0)
 [node name="day_night_manager" type="Node3D" parent="." unique_id=999425069]
 script = ExtResource("3_5q4o7")
 
+[node name="ui_layer" type="CanvasLayer" parent="day_night_manager" unique_id=144002364]
+
+[node name="progress_bar" type="ProgressBar" parent="day_night_manager/ui_layer" unique_id=1978704943]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 30)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 51.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+max_value = 1.0
+show_percentage = false
+
 [node name="sun" type="DirectionalLight3D" parent="day_night_manager" unique_id=1248055285]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.9063077, -0.42261824, 0, 0.42261824, 0.9063077, 0, 0, 0)
